@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuvé — Brand Identity Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nuve-midnight: #0A1628;
+    --nuve-deep: #111D32;
+    --nuve-navy: #1A2942;
+    --nuve-teal: #2EC4B6;
+    --nuve-teal-light: #3DDFD0;
+    --nuve-gold: #D4A843;
+    --nuve-gold-light: #E8C76A;
+    --nuve-cream: #F5F0E8;
+    --nuve-white: #FAFAF8;
+    --nuve-gray: #8A95A5;
+    --nuve-gray-light: #C4CCD6;
+    --nuve-error: #E85D5D;
+    --nuve-success: #2EC4B6;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); background: var(--nuve-white); color: var(--nuve-midnight); -webkit-font-smoothing: antialiased; }
+  .cover { min-height: 100vh; background: var(--nuve-midnight); display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50%; right: -30%; width: 80vw; height: 80vw; border-radius: 50%; background: radial-gradient(circle, rgba(46,196,182,0.08) 0%, transparent 70%); animation: pulse 8s ease-in-out infinite; }
+  .cover::after { content: ''; position: absolute; bottom: -40%; left: -20%; width: 60vw; height: 60vw; border-radius: 50%; background: radial-gradient(circle, rgba(212,168,67,0.06) 0%, transparent 70%); animation: pulse 10s ease-in-out infinite reverse; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.1); opacity: 1; } }
+  .cover-content { position: relative; z-index: 1; text-align: center; }
+  .cover-logo { font-family: var(--font-display); font-size: clamp(5rem, 12vw, 10rem); font-weight: 300; color: var(--nuve-white); letter-spacing: 0.15em; margin-bottom: 1rem; }
+  .cover-logo span { color: var(--nuve-teal); }
+  .cover-tagline { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--nuve-gray); margin-bottom: 3rem; }
+  .cover-subtitle { font-family: var(--font-display); font-size: 1.3rem; font-weight: 300; color: var(--nuve-gold); letter-spacing: 0.1em; border-top: 1px solid rgba(212,168,67,0.3); padding-top: 2rem; }
+  .cover-date { font-family: var(--font-mono); font-size: 0.65rem; color: var(--nuve-gray); letter-spacing: 0.3em; margin-top: 1rem; }
+  .section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .section-dark { background: var(--nuve-midnight); max-width: 100%; padding: 6rem 2rem; }
+  .section-dark .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-cream { background: var(--nuve-cream); max-width: 100%; padding: 6rem 2rem; }
+  .section-cream .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--nuve-teal); margin-bottom: 1rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2; }
+  .section-desc { font-size: 0.95rem; line-height: 1.8; color: var(--nuve-gray); max-width: 600px; margin-bottom: 3rem; }
+  .dark-text { color: var(--nuve-white); }
+  .dark-desc { color: var(--nuve-gray-light); }
+  .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .logo-card { border-radius: 16px; padding: 4rem 3rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px; position: relative; }
+  .logo-card-dark { background: var(--nuve-midnight); border: 1px solid rgba(255,255,255,0.06); }
+  .logo-card-light { background: var(--nuve-white); border: 1px solid rgba(10,22,40,0.08); }
+  .logo-card-teal { background: var(--nuve-teal); }
+  .logo-text { font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; letter-spacing: 0.12em; }
+  .logo-text-white { color: var(--nuve-white); }
+  .logo-text-dark { color: var(--nuve-midnight); }
+  .logo-text .accent-teal { color: var(--nuve-teal); }
+  .logo-text .accent-gold { color: var(--nuve-gold); }
+  .logo-text .accent-white { color: var(--nuve-white); }
+  .logo-card-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; position: absolute; bottom: 1.5rem; opacity: 0.5; }
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .color-card { border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.04); }
+  .color-swatch { height: 140px; }
+  .color-info { padding: 1.2rem 1.5rem; background: white; }
+  .color-name { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .color-hex { font-family: var(--font-mono); font-size: 0.7rem; color: var(--nuve-gray); letter-spacing: 0.05em; }
+  .color-role { font-size: 0.7rem; color: var(--nuve-teal); margin-top: 0.4rem; font-weight: 500; }
+  .type-showcase { margin-bottom: 4rem; }
+  .type-specimen { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(10,22,40,0.06); }
+  .type-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--nuve-teal); margin-bottom: 1rem; }
+  .type-display { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1rem; }
+  .type-body { font-family: var(--font-body); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; }
+  .type-mono-sample { font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.8; color: var(--nuve-gray); }
+  .type-weights { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem; }
+  .type-weight-item { font-family: var(--font-display); font-size: 2rem; }
+  .type-weight-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nuve-gray); margin-top: 0.3rem; }
+  .scale-table { width: 100%; border-collapse: collapse; }
+  .scale-table th { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nuve-gray); text-align: left; padding: 1rem 0; border-bottom: 1px solid rgba(10,22,40,0.08); }
+  .scale-table td { padding: 1.2rem 0; border-bottom: 1px solid rgba(10,22,40,0.04); vertical-align: middle; }
+  .scale-table td:first-child { font-family: var(--font-mono); font-size: 0.7rem; color: var(--nuve-teal); width: 100px; }
+  .scale-table td:last-child { font-family: var(--font-mono); font-size: 0.65rem; color: var(--nuve-gray); text-align: right; }
+  .scale-sample { font-family: var(--font-display); }
+  .spacing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .spacing-item { text-align: center; }
+  .spacing-block { background: var(--nuve-teal); border-radius: 8px; margin: 0 auto 0.8rem; opacity: 0.7; }
+  .spacing-value { font-family: var(--font-mono); font-size: 0.7rem; color: var(--nuve-midnight); font-weight: 700; }
+  .spacing-name { font-family: var(--font-mono); font-size: 0.55rem; color: var(--nuve-gray); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0.3rem; }
+  .ui-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+  .ui-card { padding: 2rem; border-radius: 16px; background: var(--nuve-white); border: 1px solid rgba(10,22,40,0.06); }
+  .ui-card-title { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--nuve-gray); margin-bottom: 1.5rem; }
+  .btn { display: inline-block; padding: 0.8rem 2rem; border-radius: 8px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; border: none; margin-right: 0.8rem; margin-bottom: 0.8rem; transition: all 0.3s ease; }
+  .btn-primary { background: var(--nuve-teal); color: var(--nuve-midnight); }
+  .btn-secondary { background: transparent; color: var(--nuve-midnight); border: 1.5px solid var(--nuve-midnight); }
+  .btn-gold { background: var(--nuve-gold); color: var(--nuve-midnight); }
+  .btn-dark { background: var(--nuve-midnight); color: var(--nuve-white); }
+  .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.7rem; }
+  .input-sample { width: 100%; padding: 0.9rem 1.2rem; border: 1.5px solid var(--nuve-gray-light); border-radius: 8px; font-family: var(--font-body); font-size: 0.85rem; color: var(--nuve-midnight); background: white; margin-bottom: 0.8rem; outline: none; }
+  .input-sample:focus { border-color: var(--nuve-teal); }
+  .input-label { font-size: 0.7rem; font-weight: 600; color: var(--nuve-midnight); margin-bottom: 0.4rem; display: block; }
+  .tag { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+  .tag-teal { background: rgba(46,196,182,0.12); color: var(--nuve-teal); }
+  .tag-gold { background: rgba(212,168,67,0.12); color: var(--nuve-gold); }
+  .tag-error { background: rgba(232,93,93,0.12); color: var(--nuve-error); }
+  .voice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+  .voice-card { padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); background: var(--nuve-deep); }
+  .voice-do { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; }
+  .voice-do-yes { color: var(--nuve-teal); }
+  .voice-do-no { color: var(--nuve-error); }
+  .voice-example { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; line-height: 1.5; color: var(--nuve-white); font-style: italic; }
+  .imagery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .imagery-card { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; position: relative; background: var(--nuve-navy); }
+  .imagery-card::after { content: attr(data-label); position: absolute; bottom: 1rem; left: 1rem; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); background: rgba(10,22,40,0.6); padding: 0.3rem 0.7rem; border-radius: 4px; backdrop-filter: blur(4px); }
+  .imagery-gradient-1 { background: linear-gradient(135deg, var(--nuve-midnight) 0%, var(--nuve-teal) 100%); }
+  .imagery-gradient-2 { background: linear-gradient(135deg, var(--nuve-navy) 0%, var(--nuve-gold) 100%); }
+  .imagery-gradient-3 { background: linear-gradient(135deg, var(--nuve-teal) 0%, var(--nuve-gold-light) 100%); }
+  .clearspace-demo { display: flex; justify-content: center; align-items: center; padding: 3rem; margin-top: 2rem; }
+  .clearspace-box { position: relative; padding: 3rem 4rem; border: 1.5px dashed var(--nuve-teal); border-radius: 12px; }
+  .clearspace-inner { font-family: var(--font-display); font-size: 3rem; font-weight: 300; letter-spacing: 0.12em; color: var(--nuve-midnight); }
+  .clearspace-marker { position: absolute; font-family: var(--font-mono); font-size: 0.5rem; color: var(--nuve-teal); letter-spacing: 0.1em; }
+  .clearspace-top { top: 0.8rem; left: 50%; transform: translateX(-50%); }
+  .clearspace-bottom { bottom: 0.8rem; left: 50%; transform: translateX(-50%); }
+  .clearspace-left { left: 0.8rem; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+  .clearspace-right { right: 0.8rem; top: 50%; transform: translateY(-50%) rotate(90deg); }
+  .footer { text-align: center; padding: 4rem 2rem; background: var(--nuve-midnight); color: var(--nuve-gray); }
+  .footer-logo { font-family: var(--font-display); font-size: 2rem; font-weight: 300; letter-spacing: 0.15em; color: var(--nuve-white); margin-bottom: 1rem; }
+  .footer-text { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; }
+  .divider { width: 60px; height: 2px; background: var(--nuve-teal); margin-bottom: 2rem; }
+  .divider-gold { background: var(--nuve-gold); }
+  @media (max-width: 768px) { .imagery-grid { grid-template-columns: 1fr; } .section { padding: 4rem 1.5rem; } }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-tagline">Intelligent Wealth Management</div>
+    <div class="cover-logo">Nuv<span>é</span></div>
+    <div class="cover-subtitle">Brand Identity Kit</div>
+    <div class="cover-date">V 1.0 — 2026</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">01 — Logo</div>
+  <div class="section-title">Wordmark</div>
+  <div class="divider"></div>
+  <div class="section-desc">The Nuvé wordmark uses Cormorant Garamond Light to express sophistication and clarity. The accent on the "é" is a signature detail — always preserved.</div>
+  <div class="logo-grid">
+    <div class="logo-card logo-card-dark">
+      <div class="logo-text logo-text-white">Nuv<span class="accent-teal">é</span></div>
+      <span class="logo-card-label" style="color: var(--nuve-gray);">Primary — Dark</span>
+    </div>
+    <div class="logo-card logo-card-light">
+      <div class="logo-text logo-text-dark">Nuv<span class="accent-teal">é</span></div>
+      <span class="logo-card-label" style="color: var(--nuve-gray);">Primary — Light</span>
+    </div>
+    <div class="logo-card logo-card-dark">
+      <div class="logo-text logo-text-white">Nuv<span class="accent-gold">é</span></div>
+      <span class="logo-card-label" style="color: var(--nuve-gray);">Gold Accent</span>
+    </div>
+    <div class="logo-card logo-card-teal">
+      <div class="logo-text logo-text-dark">Nuv<span class="accent-white">é</span></div>
+      <span class="logo-card-label" style="color: var(--nuve-midnight);">Teal Inverse</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-cream">
+  <div class="section-inner">
+    <div class="section-label">01.1 — Clear Space</div>
+    <div class="section-title">Minimum Clear Space</div>
+    <div class="divider"></div>
+    <div class="section-desc">Maintain a minimum clear space equal to the height of the "N" around the wordmark at all times. Never crowd the logo with other elements.</div>
+    <div class="clearspace-demo">
+      <div class="clearspace-box">
+        <span class="clearspace-marker clearspace-top">1× HEIGHT</span>
+        <span class="clearspace-marker clearspace-bottom">1× HEIGHT</span>
+        <span class="clearspace-marker clearspace-left">1× HEIGHT</span>
+        <span class="clearspace-marker clearspace-right">1× HEIGHT</span>
+        <div class="clearspace-inner">Nuvé</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">02 — Color Palette</div>
+  <div class="section-title">Brand Colors</div>
+  <div class="divider"></div>
+  <div class="section-desc">A restrained palette built on deep navy foundations with teal and gold accents. The palette communicates trust, intelligence, and premium positioning.</div>
+  <div class="color-grid">
+    <div class="color-card"><div class="color-swatch" style="background: var(--nuve-midnight);"></div><div class="color-info"><div class="color-name">Midnight</div><div class="color-hex">#0A1628</div><div class="color-role">Primary Background</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background: var(--nuve-navy);"></div><div class="color-info"><div class="color-name">Navy</div><div class="color-hex">#1A2942</div><div class="color-role">Cards & Surfaces</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background: var(--nuve-teal);"></div><div class="color-info"><div class="color-name">Teal</div><div class="color-hex">#2EC4B6</div><div class="color-role">Primary Accent / CTA</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background: var(--nuve-gold);"></div><div class="color-info"><div class="color-name">Gold</div><div class="color-hex">#D4A843</div><div class="color-role">Premium Accent</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background: var(--nuve-cream);"></div><div class="color-info"><div class="color-name">Cream</div><div class="color-hex">#F5F0E8</div><div class="color-role">Light Background</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background: var(--nuve-gray);"></div><div class="color-info"><div class="color-name">Slate</div><div class="color-hex">#8A95A5</div><div class="color-role">Body Text / Muted</div></div></div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="section-label">03 — Typography</div>
+    <div class="section-title dark-text">Type System</div>
+    <div class="divider divider-gold"></div>
+    <div class="section-desc dark-desc">Three typefaces form a hierarchy: a refined serif for headlines, a clean sans for body, and a monospace for data and labels.</div>
+    <div class="type-showcase">
+      <div class="type-specimen" style="border-color: rgba(255,255,255,0.06);">
+        <div class="type-label">Display — Cormorant Garamond</div>
+        <div class="type-display" style="color: var(--nuve-white);">Grow wealth with confidence</div>
+        <div class="type-weights">
+          <div><div class="type-weight-item" style="font-weight:300; color: var(--nuve-white);">Aa</div><div class="type-weight-label">Light 300</div></div>
+          <div><div class="type-weight-item" style="font-weight:400; color: var(--nuve-white);">Aa</div><div class="type-weight-label">Regular 400</div></div>
+          <div><div class="type-weight-item" style="font-weight:500; color: var(--nuve-white);">Aa</div><div class="type-weight-label">Medium 500</div></div>
+          <div><div class="type-weight-item" style="font-weight:600; color: var(--nuve-white);">Aa</div><div class="type-weight-label">Semibold 600</div></div>
+        </div>
+      </div>
+      <div class="type-specimen" style="border-color: rgba(255,255,255,0.06);">
+        <div class="type-label">Body — DM Sans</div>
+        <div class="type-body" style="color: var(--nuve-gray-light);">Nuvé helps you build, manage, and protect your wealth with intelligent portfolio management powered by real-time market analysis and personalized insights.</div>
+      </div>
+      <div class="type-specimen" style="border-color: rgba(255,255,255,0.06);">
+        <div class="type-label">Data & Labels — Space Mono</div>
+        <div class="type-mono-sample" style="color: var(--nuve-gray-light);">+12.4% YTD &nbsp;|&nbsp; EGP 2,450,000 &nbsp;|&nbsp; PORTFOLIO VALUE &nbsp;|&nbsp; 03.31.2026</div>
+      </div>
+    </div>
+    <div class="type-label" style="margin-top: 3rem;">Type Scale</div>
+    <table class="scale-table">
+      <thead><tr><th style="color: var(--nuve-gray-light);">Token</th><th style="color: var(--nuve-gray-light);">Sample</th><th style="color: var(--nuve-gray-light);">Size</th></tr></thead>
+      <tbody>
+        <tr><td>H1</td><td class="scale-sample" style="font-size: 3rem; font-weight: 300; color: var(--nuve-white);">Wealth</td><td>48px / Light</td></tr>
+        <tr><td>H2</td><td class="scale-sample" style="font-size: 2.25rem; font-weight: 300; color: var(--nuve-white);">Wealth</td><td>36px / Light</td></tr>
+        <tr><td>H3</td><td class="scale-sample" style="font-size: 1.5rem; font-weight: 400; color: var(--nuve-white);">Wealth</td><td>24px / Regular</td></tr>
+        <tr><td>Body</td><td style="font-family: var(--font-body); font-size: 1rem; color: var(--nuve-gray-light);">Portfolio insights</td><td>16px / Regular</td></tr>
+        <tr><td>Caption</td><td style="font-family: var(--font-body); font-size: 0.8rem; color: var(--nuve-gray);">Last updated</td><td>13px / Regular</td></tr>
+        <tr><td>Mono</td><td style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--nuve-teal);">+12.4% YTD</td><td>12px / Regular</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">04 — Spacing System</div>
+  <div class="section-title">Spacing Scale</div>
+  <div class="divider"></div>
+  <div class="section-desc">An 8px base grid ensures consistent spacing across all screens and components.</div>
+  <div class="spacing-grid">
+    <div class="spacing-item"><div class="spacing-block" style="width: 4px; height: 4px;"></div><div class="spacing-value">4px</div><div class="spacing-name">2XS</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width: 8px; height: 8px;"></div><div class="spacing-value">8px</div><div class="spacing-name">XS</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width: 16px; height: 16px;"></div><div class="spacing-value">16px</div><div class="spacing-name">SM</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width: 24px; height: 24px;"></div><div class="spacing-value">24px</div><div class="spacing-name">MD</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width: 32px; height: 32px;"></div><div class="spacing-value">32px</div><div class="spacing-name">LG</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width: 48px; height: 48px;"></div><div class="spacing-value">48px</div><div class="spacing-name">XL</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width: 64px; height: 64px;"></div><div class="spacing-value">64px</div><div class="spacing-name">2XL</div></div>
+    <div class="spacing-item"><div class="spacing-block" style="width: 96px; height: 96px;"></div><div class="spacing-value">96px</div><div class="spacing-name">3XL</div></div>
+  </div>
+</section>
+
+<section class="section-cream">
+  <div class="section-inner">
+    <div class="section-label">05 — UI Components</div>
+    <div class="section-title">Component Library</div>
+    <div class="divider"></div>
+    <div class="section-desc">Core UI building blocks maintaining visual consistency across the Nuvé platform.</div>
+    <div class="ui-grid">
+      <div class="ui-card">
+        <div class="ui-card-title">Buttons</div>
+        <button class="btn btn-primary">Invest Now</button>
+        <button class="btn btn-secondary">Learn More</button>
+        <button class="btn btn-gold">Premium</button>
+        <button class="btn btn-dark">Dashboard</button>
+        <br>
+        <button class="btn btn-primary btn-sm">Small CTA</button>
+        <button class="btn btn-secondary btn-sm">Small Alt</button>
+      </div>
+      <div class="ui-card">
+        <div class="ui-card-title">Form Inputs</div>
+        <label class="input-label">Full Name</label>
+        <input type="text" class="input-sample" placeholder="Enter your name" />
+        <label class="input-label">Investment Amount (EGP)</label>
+        <input type="text" class="input-sample" placeholder="e.g. 50,000" />
+      </div>
+      <div class="ui-card">
+        <div class="ui-card-title">Tags & Badges</div>
+        <span class="tag tag-teal">Active</span>
+        <span class="tag tag-gold">Premium</span>
+        <span class="tag tag-error">High Risk</span>
+        <span class="tag tag-teal">+12.4%</span>
+        <span class="tag tag-gold">Shariah</span>
+        <span class="tag tag-teal">Balanced</span>
+      </div>
+      <div class="ui-card">
+        <div class="ui-card-title">Border Radius</div>
+        <div style="display: flex; gap: 1rem; align-items: end;">
+          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:4px;opacity:0.7;"></div>
+          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:8px;opacity:0.8;"></div>
+          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:16px;opacity:0.9;"></div>
+          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:50%;"></div>
+        </div>
+        <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">4px</span>
+          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">8px</span>
+          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">16px</span>
+          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">Full</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="section-label">06 — Brand Voice</div>
+    <div class="section-title dark-text">Tone & Language</div>
+    <div class="divider divider-gold"></div>
+    <div class="section-desc dark-desc">Nuvé speaks with quiet confidence — knowledgeable but never condescending, premium but never exclusionary. We simplify complexity without dumbing it down.</div>
+    <div class="voice-grid">
+      <div class="voice-card"><div class="voice-do voice-do-yes">✓ Do</div><div class="voice-example">"Your portfolio grew 12.4% this quarter — here's what drove the gains."</div></div>
+      <div class="voice-card"><div class="voice-do voice-do-no">✕ Don't</div><div class="voice-example">"Congrats! 🎉 Your money went UP! Check out these awesome returns!!!"</div></div>
+      <div class="voice-card"><div class="voice-do voice-do-yes">✓ Do</div><div class="voice-example">"Market conditions suggest rebalancing — we've prepared options for you."</div></div>
+      <div class="voice-card"><div class="voice-do voice-do-no">✕ Don't</div><div class="voice-example">"Warning! Volatility detected! Act now before it's too late!"</div></div>
+    </div>
+    <div style="margin-top: 3rem;">
+      <div class="type-label">Brand Personality Pillars</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <div style="padding: 1.5rem; border-left: 2px solid var(--nuve-teal);"><div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--nuve-white); margin-bottom: 0.5rem;">Intelligent</div><div style="font-size: 0.8rem; color: var(--nuve-gray); line-height: 1.6;">Data-driven, precise, always informed</div></div>
+        <div style="padding: 1.5rem; border-left: 2px solid var(--nuve-gold);"><div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--nuve-white); margin-bottom: 0.5rem;">Approachable</div><div style="font-size: 0.8rem; color: var(--nuve-gray); line-height: 1.6;">Warm, clear, never intimidating</div></div>
+        <div style="padding: 1.5rem; border-left: 2px solid var(--nuve-teal);"><div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--nuve-white); margin-bottom: 0.5rem;">Trustworthy</div><div style="font-size: 0.8rem; color: var(--nuve-gray); line-height: 1.6;">Transparent, licensed, accountable</div></div>
+        <div style="padding: 1.5rem; border-left: 2px solid var(--nuve-gold);"><div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--nuve-white); margin-bottom: 0.5rem;">Modern</div><div style="font-size: 0.8rem; color: var(--nuve-gray); line-height: 1.6;">Forward-looking, tech-native, elegant</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">07 — Imagery & Gradients</div>
+  <div class="section-title">Visual Language</div>
+  <div class="divider"></div>
+  <div class="section-desc">Photography and illustrations should feel premium, editorial, and intentional. Favor abstract financial imagery, clean data visualizations, and lifestyle shots that convey aspiration without excess.</div>
+  <div class="imagery-grid">
+    <div class="imagery-card imagery-gradient-1" data-label="Midnight → Teal"></div>
+    <div class="imagery-card imagery-gradient-2" data-label="Navy → Gold"></div>
+    <div class="imagery-card imagery-gradient-3" data-label="Teal → Gold"></div>
+  </div>
+  <div style="margin-top: 3rem;">
+    <div class="type-label">Photography Direction</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+      <div style="font-size: 0.85rem; line-height: 1.8; color: var(--nuve-gray);"><strong style="color: var(--nuve-midnight);">Do:</strong> Clean compositions, natural light, muted warm tones, urban professional settings, abstract data visuals, Egyptian/Middle Eastern architectural details</div>
+      <div style="font-size: 0.85rem; line-height: 1.8; color: var(--nuve-gray);"><strong style="color: var(--nuve-midnight);">Don't:</strong> Stock-feeling handshakes, overly staged "business" shots, cluttered compositions, neon/saturated filters, generic global city skylines</div>
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-logo">Nuvé</div>
+  <div class="footer-text">Brand Identity Kit — V1.0 — Confidential</div>
+  <div style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; color: var(--nuve-gray);">Acumen Holding · FRA Licensed · Egypt</div>
+</section>
+
+</body>
+</html>
