@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuvé — Icon Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css">
+<style>
+  :root {
+    --nuve-midnight: #0A1628;
+    --nuve-deep: #111D32;
+    --nuve-navy: #1A2942;
+    --nuve-teal: #2EC4B6;
+    --nuve-gold: #D4A843;
+    --nuve-cream: #F5F0E8;
+    --nuve-white: #FAFAF8;
+    --nuve-gray: #8A95A5;
+    --nuve-gray-light: #C4CCD6;
+    --nuve-error: #E85D5D;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--nuve-midnight);
+    color: var(--nuve-white);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── Top Nav ── */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .top-nav-left { display: flex; align-items: center; gap: 2rem; }
+  .top-nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--nuve-white);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+  .top-nav-logo span { color: var(--nuve-teal); }
+  .top-nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--nuve-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .top-nav-link:hover { color: var(--nuve-teal); }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 5rem 2.5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--nuve-teal);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--nuve-gray);
+    max-width: 560px;
+    margin-bottom: 2rem;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .hero-meta-value {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--nuve-teal);
+    letter-spacing: -0.02em;
+  }
+  .hero-meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nuve-gray);
+  }
+
+  /* ── Usage block ── */
+  .usage-block {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .usage-label {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nuve-gray);
+    white-space: nowrap;
+  }
+  .usage-code {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--nuve-teal);
+    background: rgba(46,196,182,0.08);
+    border: 1px solid rgba(46,196,182,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Controls ── */
+  .controls {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .search-wrap {
+    position: relative;
+    max-width: 480px;
+  }
+  .search-wrap i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--nuve-gray);
+    font-size: 1rem;
+    pointer-events: none;
+  }
+  #icon-search {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.8rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: var(--nuve-white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #icon-search::placeholder { color: var(--nuve-gray); }
+  #icon-search:focus { border-color: rgba(46,196,182,0.5); }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: transparent;
+    color: var(--nuve-gray);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover {
+    border-color: rgba(46,196,182,0.4);
+    color: var(--nuve-teal);
+  }
+  .filter-btn.active {
+    background: rgba(46,196,182,0.12);
+    border-color: rgba(46,196,182,0.4);
+    color: var(--nuve-teal);
+  }
+
+  /* ── Icon Grid ── */
+  .grid-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+  }
+  .grid-count {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--nuve-gray);
+    padding: 1rem 0 1.2rem;
+  }
+  #icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.7rem;
+  }
+  .icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 1.2rem 0.5rem 0.9rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .icon-card:hover {
+    background: rgba(46,196,182,0.1);
+    border-color: rgba(46,196,182,0.35);
+    transform: translateY(-2px);
+  }
+  .icon-card:active { transform: translateY(0); }
+  .icon-card.copied {
+    background: rgba(46,196,182,0.18);
+    border-color: var(--nuve-teal);
+  }
+  .icon-card i {
+    font-size: 1.6rem;
+    color: var(--nuve-white);
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  .icon-card.copied i { color: var(--nuve-teal); }
+  .icon-card-name {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.02em;
+    color: var(--nuve-gray);
+    text-align: center;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+  .icon-card:hover .icon-card-name { color: var(--nuve-gray-light); }
+
+  /* ── Copy toast ── */
+  #copy-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    background: var(--nuve-navy);
+    border: 1px solid rgba(46,196,182,0.35);
+    color: var(--nuve-teal);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    padding: 0.65rem 1.5rem;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 9999;
+    white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  #copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── Empty state ── */
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--nuve-gray);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+  }
+  .empty-state i { font-size: 2.5rem; opacity: 0.3; margin-bottom: 1rem; }
+
+  /* ── Footer ── */
+  .footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-link {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nuve-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-link:hover { color: var(--nuve-teal); }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: rgba(138,149,165,0.5);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="top-nav">
+  <div class="top-nav-left">
+    <a href="index.html" class="top-nav-logo">Nuv<span>é</span></a>
+    <a href="index.html" class="top-nav-link">← Brand Kit</a>
+    <a href="components.html" class="top-nav-link">Components</a>
+  </div>
+  <span style="font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--nuve-teal);">Icon Library</span>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="hero-label">Design System · Iconography</div>
+  <h1 class="hero-title">Icon Library</h1>
+  <p class="hero-desc">Phosphor Icons — Light weight. All icons used in the Nuvé design system, curated for fintech and wealth management. Click any icon to copy its HTML tag.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-value" id="total-count">119</div>
+      <div class="hero-meta-label">Curated Icons</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-value">7</div>
+      <div class="hero-meta-label">Categories</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-value">Light</div>
+      <div class="hero-meta-label">Icon Weight</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-value">MIT</div>
+      <div class="hero-meta-label">License</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Usage ── -->
+<div class="usage-block">
+  <span class="usage-label">Usage</span>
+  <code class="usage-code">&lt;i class="ph-light ph-{icon-name}"&gt;&lt;/i&gt;</code>
+  <span class="usage-label" style="margin-left:1rem;">CDN</span>
+  <code class="usage-code" style="color:var(--nuve-gray-light);">@phosphor-icons/web@2.1.2/src/light/style.css</code>
+</div>
+
+<!-- ── Controls ── -->
+<div class="controls">
+  <div class="search-wrap">
+    <i class="ph-light ph-magnifying-glass"></i>
+    <input id="icon-search" type="text" placeholder="Search icons…" autocomplete="off">
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="navigation">Navigation</button>
+    <button class="filter-btn" data-cat="finance">Finance</button>
+    <button class="filter-btn" data-cat="charts">Charts & Data</button>
+    <button class="filter-btn" data-cat="actions">Actions</button>
+    <button class="filter-btn" data-cat="status">Status</button>
+    <button class="filter-btn" data-cat="accounts">Accounts</button>
+    <button class="filter-btn" data-cat="ui">UI Elements</button>
+  </div>
+</div>
+
+<!-- ── Grid ── -->
+<div class="grid-wrap">
+  <div class="grid-count" id="icon-count"></div>
+  <div id="icon-grid"></div>
+</div>
+
+<!-- ── Copy Toast ── -->
+<div id="copy-toast">COPIED TO CLIPBOARD</div>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">Brand Identity Kit</a>
+    <a href="components.html" class="footer-link">Components Library</a>
+    <a href="https://phosphoricons.com" target="_blank" class="footer-link">Phosphor Icons ↗</a>
+  </div>
+  <div class="footer-copy">Acumen Holding · FRA Licensed · Egypt</div>
+</footer>
+
+<script>
+const ICONS = [
+  { name: 'house', cat: 'navigation' },
+  { name: 'wallet', cat: 'navigation' },
+  { name: 'credit-card', cat: 'navigation' },
+  { name: 'piggy-bank', cat: 'navigation' },
+  { name: 'trend-up', cat: 'navigation' },
+  { name: 'arrow-left', cat: 'navigation' },
+  { name: 'arrow-right', cat: 'navigation' },
+  { name: 'arrow-up', cat: 'navigation' },
+  { name: 'arrow-down', cat: 'navigation' },
+  { name: 'caret-left', cat: 'navigation' },
+  { name: 'caret-right', cat: 'navigation' },
+  { name: 'caret-up', cat: 'navigation' },
+  { name: 'caret-down', cat: 'navigation' },
+  { name: 'magnifying-glass', cat: 'navigation' },
+  { name: 'funnel', cat: 'navigation' },
+  { name: 'sliders', cat: 'navigation' },
+  { name: 'list', cat: 'navigation' },
+  { name: 'grid-four', cat: 'navigation' },
+  { name: 'dots-three-vertical', cat: 'navigation' },
+  { name: 'dots-three-horizontal', cat: 'navigation' },
+  { name: 'currency-dollar', cat: 'finance' },
+  { name: 'currency-circle-dollar', cat: 'finance' },
+  { name: 'bank', cat: 'finance' },
+  { name: 'coins', cat: 'finance' },
+  { name: 'money', cat: 'finance' },
+  { name: 'receipt', cat: 'finance' },
+  { name: 'handshake', cat: 'finance' },
+  { name: 'percent', cat: 'finance' },
+  { name: 'tag', cat: 'finance' },
+  { name: 'vault', cat: 'finance' },
+  { name: 'briefcase', cat: 'finance' },
+  { name: 'building', cat: 'finance' },
+  { name: 'buildings', cat: 'finance' },
+  { name: 'suitcase', cat: 'finance' },
+  { name: 'scales', cat: 'finance' },
+  { name: 'globe', cat: 'finance' },
+  { name: 'globe-hemisphere-east', cat: 'finance' },
+  { name: 'arrow-fat-down', cat: 'finance' },
+  { name: 'arrow-fat-up', cat: 'finance' },
+  { name: 'swap', cat: 'finance' },
+  { name: 'chart-bar', cat: 'charts' },
+  { name: 'chart-bar-horizontal', cat: 'charts' },
+  { name: 'chart-line', cat: 'charts' },
+  { name: 'chart-line-up', cat: 'charts' },
+  { name: 'chart-line-down', cat: 'charts' },
+  { name: 'chart-pie', cat: 'charts' },
+  { name: 'chart-pie-slice', cat: 'charts' },
+  { name: 'trend-down', cat: 'charts' },
+  { name: 'wave-sine', cat: 'charts' },
+  { name: 'arrow-up-right', cat: 'charts' },
+  { name: 'arrow-down-right', cat: 'charts' },
+  { name: 'table', cat: 'charts' },
+  { name: 'rows', cat: 'charts' },
+  { name: 'database', cat: 'charts' },
+  { name: 'plus', cat: 'actions' },
+  { name: 'minus', cat: 'actions' },
+  { name: 'pencil', cat: 'actions' },
+  { name: 'pencil-simple', cat: 'actions' },
+  { name: 'trash', cat: 'actions' },
+  { name: 'download', cat: 'actions' },
+  { name: 'upload', cat: 'actions' },
+  { name: 'share-network', cat: 'actions' },
+  { name: 'copy', cat: 'actions' },
+  { name: 'arrow-clockwise', cat: 'actions' },
+  { name: 'arrows-clockwise', cat: 'actions' },
+  { name: 'paper-plane-tilt', cat: 'actions' },
+  { name: 'export', cat: 'actions' },
+  { name: 'link', cat: 'actions' },
+  { name: 'check', cat: 'actions' },
+  { name: 'x', cat: 'actions' },
+  { name: 'star', cat: 'actions' },
+  { name: 'bookmark', cat: 'actions' },
+  { name: 'heart', cat: 'actions' },
+  { name: 'printer', cat: 'actions' },
+  { name: 'check-circle', cat: 'status' },
+  { name: 'warning', cat: 'status' },
+  { name: 'warning-circle', cat: 'status' },
+  { name: 'x-circle', cat: 'status' },
+  { name: 'info', cat: 'status' },
+  { name: 'bell', cat: 'status' },
+  { name: 'bell-ringing', cat: 'status' },
+  { name: 'bell-slash', cat: 'status' },
+  { name: 'clock', cat: 'status' },
+  { name: 'timer', cat: 'status' },
+  { name: 'hourglass', cat: 'status' },
+  { name: 'shield-check', cat: 'status' },
+  { name: 'shield', cat: 'status' },
+  { name: 'lock', cat: 'status' },
+  { name: 'lock-open', cat: 'status' },
+  { name: 'eye', cat: 'status' },
+  { name: 'eye-slash', cat: 'status' },
+  { name: 'fingerprint', cat: 'status' },
+  { name: 'user', cat: 'accounts' },
+  { name: 'user-circle', cat: 'accounts' },
+  { name: 'users', cat: 'accounts' },
+  { name: 'user-plus', cat: 'accounts' },
+  { name: 'identification-card', cat: 'accounts' },
+  { name: 'address-book', cat: 'accounts' },
+  { name: 'phone', cat: 'accounts' },
+  { name: 'envelope', cat: 'accounts' },
+  { name: 'map-pin', cat: 'accounts' },
+  { name: 'calendar', cat: 'accounts' },
+  { name: 'calendar-blank', cat: 'accounts' },
+  { name: 'gear', cat: 'ui' },
+  { name: 'question', cat: 'ui' },
+  { name: 'chat-circle', cat: 'ui' },
+  { name: 'chat-dots', cat: 'ui' },
+  { name: 'image', cat: 'ui' },
+  { name: 'camera', cat: 'ui' },
+  { name: 'qr-code', cat: 'ui' },
+  { name: 'scan', cat: 'ui' },
+  { name: 'device-mobile', cat: 'ui' },
+  { name: 'desktop', cat: 'ui' },
+  { name: 'moon', cat: 'ui' },
+  { name: 'sun', cat: 'ui' },
+  { name: 'wifi', cat: 'ui' },
+  { name: 'signal', cat: 'ui' },
+  { name: 'sort-ascending', cat: 'ui' },
+  { name: 'sort-descending', cat: 'ui' },
+];
+
+const grid = document.getElementById('icon-grid');
+const countEl = document.getElementById('icon-count');
+const toast = document.getElementById('copy-toast');
+let toastTimer;
+let currentCat = 'all';
+let currentSearch = '';
+
+function renderGrid(list) {
+  grid.innerHTML = '';
+  countEl.textContent = list.length + ' ICONS';
+  if (list.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><i class="ph-light ph-magnifying-glass"></i><br>No icons match your search</div>';
+    return;
+  }
+  list.forEach(icon => {
+    const card = document.createElement('div');
+    card.className = 'icon-card';
+    card.title = 'Click to copy HTML tag';
+    card.innerHTML = `<i class="ph-light ph-${icon.name}"></i><div class="icon-card-name">${icon.name}</div>`;
+    card.addEventListener('click', () => {
+      const tag = `<i class="ph-light ph-${icon.name}"></i>`;
+      navigator.clipboard.writeText(tag).then(() => {
+        card.classList.add('copied');
+        setTimeout(() => card.classList.remove('copied'), 1200);
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    });
+    grid.appendChild(card);
+  });
+}
+
+function applyFilters() {
+  const q = currentSearch;
+  renderGrid(ICONS.filter(ic =>
+    (currentCat === 'all' || ic.cat === currentCat) &&
+    (!q || ic.name.includes(q))
+  ));
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    applyFilters();
+  });
+});
+
+document.getElementById('icon-search').addEventListener('input', function() {
+  currentSearch = this.value.toLowerCase().trim();
+  applyFilters();
+});
+
+renderGrid(ICONS);
+</script>
+
+</body>
+</html>
