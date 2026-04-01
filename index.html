@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nuvé — Brand Identity Kit</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css">
 <style>
   :root {
     --nuve-midnight: #0A1628;
@@ -127,11 +128,298 @@
   .divider { width: 60px; height: 2px; background: var(--nuve-teal); margin-bottom: 2rem; }
   .divider-gold { background: var(--nuve-gold); }
   @media (max-width: 768px) { .imagery-grid { grid-template-columns: 1fr; } .section { padding: 4rem 1.5rem; } }
+
+  /* ── MOBILE COMPONENT LIBRARY ─────────────────────────────── */
+  .comp-row { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+  .comp-col { flex: 1; min-width: 280px; }
+  .comp-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--nuve-gray); margin-bottom: 1rem; }
+  .comp-canvas-dark { background: var(--nuve-midnight); border-radius: 20px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.05); }
+  .comp-canvas-light { background: var(--nuve-white); border-radius: 20px; padding: 1.5rem; border: 1px solid rgba(10,22,40,0.06); }
+  .comp-canvas-navy { background: var(--nuve-navy); border-radius: 20px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.05); }
+  .comp-subsection { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(10,22,40,0.06); }
+  .comp-subsection:last-child { border-bottom: none; }
+  .comp-subsection-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--nuve-midnight); margin-bottom: 0.5rem; }
+  .comp-subsection-desc { font-size: 0.8rem; color: var(--nuve-gray); line-height: 1.7; margin-bottom: 1.5rem; }
+
+  /* Bottom Tab Bar */
+  .tab-bar { display: flex; align-items: center; justify-content: space-around; padding: 0.75rem 0.5rem 0.5rem; border-top: 1px solid rgba(255,255,255,0.06); border-radius: 0 0 16px 16px; }
+  .tab-bar-light { border-top: 1px solid rgba(10,22,40,0.08); }
+  .tab-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0.3rem 1rem; border-radius: 10px; cursor: pointer; }
+  .tab-item.active .tab-icon { color: var(--nuve-teal); }
+  .tab-item.active .tab-text { color: var(--nuve-teal); }
+  .tab-icon { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+  .tab-icon i { font-size: 1.3rem; }
+  .tab-icon-light { color: rgba(10,22,40,0.25); }
+  .tab-item.active .tab-icon-light { color: var(--nuve-teal); }
+  .tab-item.active .tab-text-light { color: var(--nuve-teal); }
+  .tab-text { font-family: var(--font-body); font-size: 0.55rem; font-weight: 500; color: rgba(255,255,255,0.3); letter-spacing: 0.02em; }
+  .tab-text-light { font-size: 0.55rem; font-weight: 500; color: rgba(10,22,40,0.3); letter-spacing: 0.02em; }
+  .tab-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--nuve-teal); margin: 0 auto; }
+
+  /* Top App Bar */
+  .app-bar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; }
+  .app-bar-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--nuve-white); }
+  .app-bar-title-light { color: var(--nuve-midnight); }
+  .app-bar-subtitle { font-family: var(--font-mono); font-size: 0.55rem; color: var(--nuve-gray); letter-spacing: 0.15em; text-transform: uppercase; }
+  .app-bar-actions { display: flex; gap: 0.5rem; }
+  .icon-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+  .icon-btn-light { background: rgba(10,22,40,0.05); }
+  .icon-btn-teal { background: rgba(46,196,182,0.15); }
+
+  /* Portfolio Hero Card */
+  .portfolio-card { background: linear-gradient(135deg, #1A2942 0%, #0A1628 100%); border-radius: 20px; padding: 1.5rem; position: relative; overflow: hidden; }
+  .portfolio-card::before { content: ''; position: absolute; top: -40%; right: -20%; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(46,196,182,0.12) 0%, transparent 70%); }
+  .portfolio-card-label { font-family: var(--font-mono); font-size: 0.55rem; color: var(--nuve-gray); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .portfolio-card-value { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--nuve-white); letter-spacing: 0.02em; margin-bottom: 0.3rem; }
+  .portfolio-card-currency { font-family: var(--font-mono); font-size: 0.7rem; color: var(--nuve-gray); }
+  .portfolio-card-change { display: inline-flex; align-items: center; gap: 0.3rem; background: rgba(46,196,182,0.15); color: var(--nuve-teal); padding: 0.25rem 0.6rem; border-radius: 20px; font-family: var(--font-mono); font-size: 0.65rem; margin-top: 0.5rem; }
+  .portfolio-card-change.negative { background: rgba(232,93,93,0.15); color: var(--nuve-error); }
+  .portfolio-card-footer { display: flex; justify-content: space-between; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .portfolio-stat { text-align: center; }
+  .portfolio-stat-val { font-family: var(--font-mono); font-size: 0.75rem; color: var(--nuve-white); font-weight: 700; }
+  .portfolio-stat-key { font-family: var(--font-mono); font-size: 0.5rem; color: var(--nuve-gray); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 2px; }
+
+  /* Asset List Item */
+  .asset-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .asset-item:last-child { border-bottom: none; }
+  .asset-item-light { border-bottom: 1px solid rgba(10,22,40,0.05); }
+  .asset-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .asset-icon-gold { background: rgba(212,168,67,0.15); }
+  .asset-icon-teal { background: rgba(46,196,182,0.12); }
+  .asset-icon-blue { background: rgba(59,130,246,0.12); }
+  .asset-info { flex: 1; }
+  .asset-name { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--nuve-white); }
+  .asset-name-light { color: var(--nuve-midnight); }
+  .asset-sub { font-family: var(--font-mono); font-size: 0.55rem; color: var(--nuve-gray); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+  .asset-right { text-align: right; }
+  .asset-value { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--nuve-white); }
+  .asset-value-light { color: var(--nuve-midnight); }
+  .asset-change-pos { font-family: var(--font-mono); font-size: 0.6rem; color: var(--nuve-teal); margin-top: 2px; }
+  .asset-change-neg { font-family: var(--font-mono); font-size: 0.6rem; color: var(--nuve-error); margin-top: 2px; }
+
+  /* Transaction Item */
+  .txn-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .txn-item:last-child { border-bottom: none; }
+  .txn-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+  .txn-icon-buy { background: rgba(46,196,182,0.12); }
+  .txn-icon-sell { background: rgba(232,93,93,0.12); }
+  .txn-icon-div { background: rgba(212,168,67,0.12); }
+  .txn-info { flex: 1; }
+  .txn-title { font-size: 0.82rem; font-weight: 600; color: var(--nuve-white); }
+  .txn-date { font-family: var(--font-mono); font-size: 0.52rem; color: var(--nuve-gray); margin-top: 2px; letter-spacing: 0.05em; }
+  .txn-amount-pos { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--nuve-teal); }
+  .txn-amount-neg { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--nuve-error); }
+
+  /* KPI Stat Tiles */
+  .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .kpi-tile { background: var(--nuve-navy); border-radius: 14px; padding: 1rem; }
+  .kpi-tile-light { background: rgba(10,22,40,0.04); border-radius: 14px; padding: 1rem; border: 1px solid rgba(10,22,40,0.06); }
+  .kpi-label { font-family: var(--font-mono); font-size: 0.5rem; color: var(--nuve-gray); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.4rem; }
+  .kpi-value { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--nuve-white); }
+  .kpi-value-light { color: var(--nuve-midnight); }
+  .kpi-sub { font-size: 0.65rem; color: var(--nuve-teal); margin-top: 0.2rem; }
+  .kpi-sub-neg { font-size: 0.65rem; color: var(--nuve-error); margin-top: 0.2rem; }
+
+  /* Sparkline SVG */
+  .sparkline-wrap { position: relative; }
+  .sparkline-label { font-family: var(--font-mono); font-size: 0.5rem; color: var(--nuve-gray); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+  .chart-periods { display: flex; gap: 0.4rem; margin-bottom: 0.8rem; }
+  .chart-period { font-family: var(--font-mono); font-size: 0.55rem; color: var(--nuve-gray); padding: 0.2rem 0.5rem; border-radius: 6px; cursor: pointer; }
+  .chart-period.active { background: rgba(46,196,182,0.15); color: var(--nuve-teal); }
+
+  /* Progress Bar */
+  .progress-wrap { margin-bottom: 1rem; }
+  .progress-header { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+  .progress-name { font-size: 0.75rem; color: var(--nuve-white); font-weight: 500; }
+  .progress-name-light { font-size: 0.75rem; color: var(--nuve-midnight); font-weight: 500; }
+  .progress-pct { font-family: var(--font-mono); font-size: 0.65rem; color: var(--nuve-gray); }
+  .progress-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; }
+  .progress-bar-light { background: rgba(10,22,40,0.08); }
+  .progress-fill { height: 100%; border-radius: 6px; }
+  .progress-fill-teal { background: var(--nuve-teal); }
+  .progress-fill-gold { background: var(--nuve-gold); }
+  .progress-fill-blue { background: #4A90D9; }
+  .progress-fill-error { background: var(--nuve-error); }
+
+  /* Step / Onboarding Progress */
+  .step-indicator { display: flex; align-items: center; gap: 0; }
+  .step-circle { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; flex-shrink: 0; }
+  .step-circle-done { background: var(--nuve-teal); color: var(--nuve-midnight); }
+  .step-circle-active { background: var(--nuve-midnight); color: var(--nuve-teal); border: 2px solid var(--nuve-teal); }
+  .step-circle-pending { background: rgba(255,255,255,0.06); color: var(--nuve-gray); border: 2px solid rgba(255,255,255,0.1); }
+  .step-line { flex: 1; height: 2px; background: rgba(255,255,255,0.08); }
+  .step-line-done { background: var(--nuve-teal); }
+
+  /* Toggle / Switch */
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0; }
+  .toggle-info { flex: 1; }
+  .toggle-title { font-size: 0.82rem; font-weight: 500; color: var(--nuve-white); }
+  .toggle-title-light { color: var(--nuve-midnight); }
+  .toggle-desc { font-size: 0.65rem; color: var(--nuve-gray); margin-top: 2px; }
+  .toggle { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
+  .toggle input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider { position: absolute; inset: 0; background: rgba(255,255,255,0.1); border-radius: 24px; cursor: pointer; transition: 0.3s; }
+  .toggle-slider::before { content: ''; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.3s; }
+  .toggle input:checked + .toggle-slider { background: var(--nuve-teal); }
+  .toggle input:checked + .toggle-slider::before { transform: translateX(20px); }
+  .toggle-sep { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0.2rem 0; }
+  .toggle-sep-light { border-top: 1px solid rgba(10,22,40,0.05); }
+
+  /* Checkbox & Radio */
+  .check-row { display: flex; align-items: center; gap: 0.7rem; padding: 0.4rem 0; }
+  .custom-check { width: 18px; height: 18px; border-radius: 5px; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .custom-check.checked { background: var(--nuve-teal); border-color: var(--nuve-teal); color: var(--nuve-midnight); font-size: 0.65rem; }
+  .custom-check-light { border-color: rgba(10,22,40,0.2); }
+  .custom-check-light.checked { background: var(--nuve-teal); border-color: var(--nuve-teal); }
+  .custom-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .custom-radio.checked { border-color: var(--nuve-teal); }
+  .custom-radio.checked::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--nuve-teal); }
+  .check-label { font-size: 0.8rem; color: var(--nuve-white); }
+  .check-label-light { color: var(--nuve-midnight); }
+
+  /* Slider */
+  .slider-wrap { padding: 0.5rem 0; }
+  .slider-track { width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative; margin: 1rem 0; }
+  .slider-fill { height: 100%; border-radius: 4px; background: var(--nuve-teal); width: 65%; }
+  .slider-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--nuve-teal); position: absolute; top: 50%; right: 35%; transform: translate(50%, -50%); box-shadow: 0 2px 8px rgba(46,196,182,0.4); }
+  .slider-labels { display: flex; justify-content: space-between; }
+  .slider-label { font-family: var(--font-mono); font-size: 0.55rem; color: var(--nuve-gray); }
+
+  /* Search Input */
+  .search-input-wrap { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid rgba(255,255,255,0.05); }
+  .search-input-wrap-light { background: rgba(10,22,40,0.04); border: 1px solid rgba(10,22,40,0.08); }
+  .search-icon { font-size: 0.9rem; color: var(--nuve-gray); }
+  .search-input { background: none; border: none; outline: none; font-family: var(--font-body); font-size: 0.85rem; color: var(--nuve-white); flex: 1; }
+  .search-input-light { color: var(--nuve-midnight); }
+  .search-input::placeholder { color: var(--nuve-gray); }
+
+  /* PIN / OTP Input */
+  .pin-row { display: flex; gap: 0.6rem; justify-content: center; }
+  .pin-box { width: 48px; height: 56px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700; color: var(--nuve-white); }
+  .pin-box.filled { border-color: var(--nuve-teal); color: var(--nuve-teal); }
+  .pin-box.active { border-color: var(--nuve-teal); box-shadow: 0 0 0 3px rgba(46,196,182,0.15); }
+
+  /* Alert / Toast */
+  .alert { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.9rem 1rem; border-radius: 12px; margin-bottom: 0.7rem; }
+  .alert-success { background: rgba(46,196,182,0.12); border: 1px solid rgba(46,196,182,0.2); }
+  .alert-warning { background: rgba(212,168,67,0.12); border: 1px solid rgba(212,168,67,0.2); }
+  .alert-error { background: rgba(232,93,93,0.12); border: 1px solid rgba(232,93,93,0.2); }
+  .alert-info { background: rgba(74,144,217,0.12); border: 1px solid rgba(74,144,217,0.2); }
+  .alert-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-body { flex: 1; }
+  .alert-title { font-size: 0.78rem; font-weight: 600; margin-bottom: 2px; }
+  .alert-success .alert-title { color: var(--nuve-teal); }
+  .alert-warning .alert-title { color: var(--nuve-gold); }
+  .alert-error .alert-title { color: var(--nuve-error); }
+  .alert-info .alert-title { color: #4A90D9; }
+  .alert-msg { font-size: 0.72rem; color: var(--nuve-gray); line-height: 1.5; }
+
+  /* Toast */
+  .toast { display: flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.1rem; border-radius: 14px; background: var(--nuve-navy); border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+  .toast-icon { font-size: 1rem; flex-shrink: 0; }
+  .toast-text { font-size: 0.78rem; color: var(--nuve-white); flex: 1; }
+  .toast-action { font-family: var(--font-mono); font-size: 0.6rem; color: var(--nuve-teal); font-weight: 700; cursor: pointer; letter-spacing: 0.05em; flex-shrink: 0; }
+
+  /* Bottom Sheet Preview */
+  .sheet-overlay { background: rgba(0,0,0,0.5); border-radius: 16px; overflow: hidden; }
+  .sheet-panel { background: var(--nuve-navy); border-radius: 20px 20px 0 0; padding: 1.5rem; margin-top: 3rem; }
+  .sheet-handle { width: 36px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; margin: 0 auto 1.2rem; }
+  .sheet-title { font-family: var(--font-display); font-size: 1.2rem; color: var(--nuve-white); margin-bottom: 0.4rem; }
+  .sheet-subtitle { font-size: 0.75rem; color: var(--nuve-gray); margin-bottom: 1.2rem; }
+  .sheet-option { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .sheet-option:last-child { border-bottom: none; }
+  .sheet-option-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+  .sheet-option-label { font-size: 0.82rem; color: var(--nuve-white); font-weight: 500; }
+  .sheet-option-sub { font-size: 0.65rem; color: var(--nuve-gray); }
+
+  /* Skeleton Loader */
+  .skeleton { background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.04) 100%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px; }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  .skeleton-circle { border-radius: 50%; }
+  .skeleton-light { background: linear-gradient(90deg, rgba(10,22,40,0.04) 0%, rgba(10,22,40,0.1) 50%, rgba(10,22,40,0.04) 100%); background-size: 200% 100%; animation: shimmer-light 1.5s infinite; border-radius: 6px; }
+  @keyframes shimmer-light { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+  /* Spinner */
+  .spinner { width: 28px; height: 28px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--nuve-teal); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner-sm { width: 18px; height: 18px; border-width: 2px; }
+  .spinner-lg { width: 40px; height: 40px; border-width: 4px; }
+
+  /* Empty State */
+  .empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
+  .empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
+  .empty-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--nuve-white); margin-bottom: 0.4rem; }
+  .empty-title-light { color: var(--nuve-midnight); }
+  .empty-desc { font-size: 0.78rem; color: var(--nuve-gray); line-height: 1.6; max-width: 200px; margin-bottom: 1.2rem; }
+
+  /* Avatar */
+  .avatar-row { display: flex; align-items: flex-end; gap: 1rem; flex-wrap: wrap; }
+  .avatar { border-radius: 50%; background: linear-gradient(135deg, var(--nuve-teal) 0%, var(--nuve-navy) 100%); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 400; color: var(--nuve-white); flex-shrink: 0; }
+  .avatar-xs { width: 28px; height: 28px; font-size: 0.65rem; }
+  .avatar-sm { width: 36px; height: 36px; font-size: 0.8rem; }
+  .avatar-md { width: 48px; height: 48px; font-size: 1rem; }
+  .avatar-lg { width: 64px; height: 64px; font-size: 1.3rem; }
+  .avatar-xl { width: 80px; height: 80px; font-size: 1.6rem; }
+  .avatar-gold { background: linear-gradient(135deg, var(--nuve-gold) 0%, #8A5C00 100%); }
+  .avatar-online { position: relative; }
+  .avatar-online::after { content: ''; position: absolute; bottom: 1px; right: 1px; width: 10px; height: 10px; background: var(--nuve-teal); border-radius: 50%; border: 2px solid var(--nuve-midnight); }
+  .avatar-size-label { font-family: var(--font-mono); font-size: 0.5rem; color: var(--nuve-gray); text-align: center; margin-top: 0.4rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* Notification Card */
+  .notif-card { background: var(--nuve-navy); border-radius: 14px; padding: 1rem; display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.6rem; border: 1px solid rgba(255,255,255,0.04); }
+  .notif-card.unread { border-left: 3px solid var(--nuve-teal); }
+  .notif-card.unread-gold { border-left: 3px solid var(--nuve-gold); }
+  .notif-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--nuve-teal); flex-shrink: 0; margin-top: 4px; }
+  .notif-dot-gold { background: var(--nuve-gold); }
+  .notif-body { flex: 1; }
+  .notif-title { font-size: 0.8rem; font-weight: 600; color: var(--nuve-white); margin-bottom: 2px; }
+  .notif-msg { font-size: 0.7rem; color: var(--nuve-gray); line-height: 1.5; }
+  .notif-time { font-family: var(--font-mono); font-size: 0.5rem; color: var(--nuve-gray); flex-shrink: 0; }
+
+  /* FAB */
+  .fab { width: 56px; height: 56px; border-radius: 18px; background: var(--nuve-teal); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; box-shadow: 0 8px 24px rgba(46,196,182,0.35); }
+  .fab-sm { width: 40px; height: 40px; border-radius: 12px; font-size: 1rem; box-shadow: 0 4px 16px rgba(46,196,182,0.3); }
+  .fab-gold { background: var(--nuve-gold); box-shadow: 0 8px 24px rgba(212,168,67,0.35); }
+
+  /* Segmented Control */
+  .segmented { display: flex; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 3px; gap: 2px; }
+  .segmented-light { background: rgba(10,22,40,0.06); }
+  .seg-btn { flex: 1; padding: 0.4rem 0.5rem; border-radius: 8px; border: none; background: transparent; font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; color: var(--nuve-gray); cursor: pointer; transition: all 0.2s; text-align: center; }
+  .seg-btn.active { background: var(--nuve-navy); color: var(--nuve-white); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .seg-btn-light.active { background: var(--nuve-white); color: var(--nuve-midnight); }
+
+  /* List Section Header */
+  .list-section-header { font-family: var(--font-mono); font-size: 0.55rem; color: var(--nuve-gray); text-transform: uppercase; letter-spacing: 0.2em; padding: 0.8rem 0 0.4rem; }
+
+  /* Donut Chart (CSS) */
+  .donut-wrap { display: flex; align-items: center; gap: 1.5rem; }
+  .donut-svg { flex-shrink: 0; }
+  .donut-legend { display: flex; flex-direction: column; gap: 0.5rem; }
+  .donut-legend-item { display: flex; align-items: center; gap: 0.5rem; }
+  .donut-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .donut-legend-label { font-size: 0.72rem; color: var(--nuve-gray); }
+  .donut-legend-val { font-family: var(--font-mono); font-size: 0.65rem; color: var(--nuve-white); font-weight: 700; margin-left: auto; padding-left: 0.5rem; }
+
+  /* Select / Dropdown */
+  .select-wrap { position: relative; }
+  .custom-select { width: 100%; padding: 0.85rem 2.5rem 0.85rem 1rem; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px; color: var(--nuve-white); font-family: var(--font-body); font-size: 0.82rem; appearance: none; cursor: pointer; outline: none; }
+  .custom-select-light { background: white; border-color: var(--nuve-gray-light); color: var(--nuve-midnight); }
+  .select-arrow { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--nuve-gray); pointer-events: none; font-size: 0.7rem; }
+  .select-wrap + .select-wrap { margin-top: 0.7rem; }
+
+  /* Section subsection divider for dark bg */
+  .comp-subsection-dark { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .comp-subsection-dark:last-child { border-bottom: none; }
+  .comp-subsection-title-dark { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--nuve-white); margin-bottom: 0.5rem; }
+  .comp-subsection-desc-dark { font-size: 0.8rem; color: var(--nuve-gray); line-height: 1.7; margin-bottom: 1.5rem; }
 </style>
-</head>
+
 <body>
 
 <section class="cover">
+  <div style="position:absolute;top:1.5rem;right:2rem;z-index:10;">
+    <a href="components.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.06);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);color:var(--nuve-white);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.6rem 1.2rem;border-radius:8px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(46,196,182,0.15)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='var(--nuve-teal)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='var(--nuve-white)'">Components Library →</a>
+  </div>
   <div class="cover-content">
     <div class="cover-tagline">Intelligent Wealth Management</div>
     <div class="cover-logo">Nuv<span>é</span></div>
@@ -256,54 +544,149 @@
   </div>
 </section>
 
-<section class="section-cream">
+
+<section class="section-cream" id="components">
   <div class="section-inner">
     <div class="section-label">05 — UI Components</div>
     <div class="section-title">Component Library</div>
     <div class="divider"></div>
-    <div class="section-desc">Core UI building blocks maintaining visual consistency across the Nuvé platform.</div>
-    <div class="ui-grid">
-      <div class="ui-card">
-        <div class="ui-card-title">Buttons</div>
-        <button class="btn btn-primary">Invest Now</button>
-        <button class="btn btn-secondary">Learn More</button>
-        <button class="btn btn-gold">Premium</button>
-        <button class="btn btn-dark">Dashboard</button>
-        <br>
-        <button class="btn btn-primary btn-sm">Small CTA</button>
-        <button class="btn btn-secondary btn-sm">Small Alt</button>
-      </div>
-      <div class="ui-card">
-        <div class="ui-card-title">Form Inputs</div>
-        <label class="input-label">Full Name</label>
-        <input type="text" class="input-sample" placeholder="Enter your name" />
-        <label class="input-label">Investment Amount (EGP)</label>
-        <input type="text" class="input-sample" placeholder="e.g. 50,000" />
-      </div>
-      <div class="ui-card">
-        <div class="ui-card-title">Tags & Badges</div>
-        <span class="tag tag-teal">Active</span>
-        <span class="tag tag-gold">Premium</span>
-        <span class="tag tag-error">High Risk</span>
-        <span class="tag tag-teal">+12.4%</span>
-        <span class="tag tag-gold">Shariah</span>
-        <span class="tag tag-teal">Balanced</span>
-      </div>
-      <div class="ui-card">
-        <div class="ui-card-title">Border Radius</div>
-        <div style="display: flex; gap: 1rem; align-items: end;">
-          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:4px;opacity:0.7;"></div>
-          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:8px;opacity:0.8;"></div>
-          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:16px;opacity:0.9;"></div>
-          <div style="width:50px;height:50px;background:var(--nuve-teal);border-radius:50%;"></div>
+    <div class="section-desc">A comprehensive mobile-first component system covering navigation, cards, data visualisation, form controls, feedback patterns, and more — all in dark and light mode.</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+
+      <a href="components.html#base" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-teal)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Base Components</div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1rem;">
+            <button class="btn btn-primary btn-sm" style="pointer-events:none;">Invest Now</button>
+            <button class="btn btn-gold btn-sm" style="pointer-events:none;">Premium</button>
+            <button class="btn btn-secondary btn-sm" style="pointer-events:none;">Learn More</button>
+          </div>
+          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem;">
+            <span class="tag tag-teal">Active</span>
+            <span class="tag tag-gold">Shariah</span>
+            <span class="tag tag-error">High Risk</span>
+          </div>
+          <div style="font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">Buttons, tags, inputs & radius tokens</div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
         </div>
-        <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
-          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">4px</span>
-          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">8px</span>
-          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">16px</span>
-          <span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-gray);width:50px;text-align:center;">Full</span>
+      </a>
+
+      <a href="components.html#navigation" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-teal)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Navigation</div>
+          <div style="background:var(--nuve-midnight);border-radius:12px;padding:0.6rem 0.8rem;margin-bottom:0.8rem;display:flex;justify-content:space-around;align-items:center;">
+            <div style="text-align:center;"><div style="font-size:0.9rem;color:var(--nuve-teal);"><i class="ph-light ph-house"></i></div><div style="width:4px;height:4px;border-radius:50%;background:var(--nuve-teal);margin:2px auto 0;"></div></div>
+            <div style="text-align:center;"><div style="font-size:0.9rem;color:rgba(255,255,255,0.25);"><i class="ph-light ph-wallet"></i></div></div>
+            <div style="text-align:center;"><div style="font-size:0.9rem;color:rgba(255,255,255,0.25);"><i class="ph-light ph-credit-card"></i></div></div>
+            <div style="text-align:center;"><div style="font-size:0.9rem;color:rgba(255,255,255,0.25);"><i class="ph-light ph-piggy-bank"></i></div></div>
+            <div style="text-align:center;"><div style="font-size:0.9rem;color:rgba(255,255,255,0.25);"><i class="ph-light ph-trend-up"></i></div></div>
+          </div>
+          <div style="font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">Tab bar, app header, segmented controls</div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
         </div>
-      </div>
+      </a>
+
+      <a href="components.html#cards" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-teal)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Cards & Surfaces</div>
+          <div style="background:linear-gradient(135deg,#1A2942,#0A1628);border-radius:12px;padding:1rem;margin-bottom:0.8rem;">
+            <div style="font-family:var(--font-mono);font-size:0.45rem;color:var(--nuve-gray);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem;">Total Portfolio Value</div>
+            <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:300;color:var(--nuve-white);">2,847,340</div>
+            <div style="display:inline-flex;align-items:center;background:rgba(46,196,182,0.15);color:var(--nuve-teal);padding:0.15rem 0.5rem;border-radius:12px;font-family:var(--font-mono);font-size:0.55rem;margin-top:0.4rem;">▲ +12.4% YTD</div>
+          </div>
+          <div style="font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">Portfolio card, KPI tiles, notifications</div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
+        </div>
+      </a>
+
+      <a href="components.html#lists" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-teal)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Lists & Data</div>
+          <div style="background:var(--nuve-midnight);border-radius:12px;padding:0.8rem;margin-bottom:0.8rem;">
+            <div style="display:flex;align-items:center;gap:0.6rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+              <div style="width:28px;height:28px;border-radius:8px;background:rgba(212,168,67,0.15);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--nuve-gold);"><i class="ph-light ph-chart-bar"></i></div>
+              <div style="flex:1;"><div style="font-size:0.7rem;font-weight:600;color:var(--nuve-white);">EGX 30 Fund</div></div>
+              <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--nuve-teal);">+18.2%</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.6rem;padding:0.4rem 0;">
+              <div style="width:28px;height:28px;border-radius:8px;background:rgba(46,196,182,0.12);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--nuve-teal);"><i class="ph-light ph-bank"></i></div>
+              <div style="flex:1;"><div style="font-size:0.7rem;font-weight:600;color:var(--nuve-white);">T-Bills 12M</div></div>
+              <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--nuve-teal);">+24.5%</div>
+            </div>
+          </div>
+          <div style="font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">Asset lists, transactions, allocation charts</div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
+        </div>
+      </a>
+
+      <a href="components.html#forms" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-teal)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Forms & Controls</div>
+          <div style="margin-bottom:0.6rem;">
+            <div style="font-size:0.65rem;font-weight:600;color:var(--nuve-midnight);margin-bottom:0.3rem;">Investment Amount</div>
+            <div style="border:1.5px solid var(--nuve-teal);border-radius:8px;padding:0.5rem 0.8rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--nuve-midnight);">EGP 50,000</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.6rem;">
+            <div style="width:32px;height:18px;background:var(--nuve-teal);border-radius:12px;position:relative;"><div style="width:12px;height:12px;background:white;border-radius:50%;position:absolute;right:3px;top:3px;"></div></div>
+            <div style="font-size:0.72rem;color:var(--nuve-midnight);">Push Notifications</div>
+          </div>
+          <div style="font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">Inputs, toggles, checkboxes, sliders, PIN</div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
+        </div>
+      </a>
+
+      <a href="components.html#feedback" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-teal)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Feedback & Overlays</div>
+          <div style="background:rgba(46,196,182,0.1);border:1px solid rgba(46,196,182,0.2);border-radius:10px;padding:0.6rem 0.8rem;margin-bottom:0.5rem;display:flex;gap:0.5rem;align-items:center;">
+            <span style="font-size:0.85rem;color:var(--nuve-teal);"><i class="ph-light ph-check-circle"></i></span>
+            <div><div style="font-size:0.7rem;font-weight:600;color:var(--nuve-teal);">Investment successful</div><div style="font-size:0.62rem;color:var(--nuve-gray);">EGP 50,000 invested in EGX 30</div></div>
+          </div>
+          <div style="background:rgba(232,93,93,0.1);border:1px solid rgba(232,93,93,0.2);border-radius:10px;padding:0.6rem 0.8rem;display:flex;gap:0.5rem;align-items:center;">
+            <span style="font-size:0.85rem;color:var(--nuve-error);"><i class="ph-light ph-x-circle"></i></span>
+            <div><div style="font-size:0.7rem;font-weight:600;color:var(--nuve-error);">Transaction failed</div><div style="font-size:0.62rem;color:var(--nuve-gray);">Insufficient funds</div></div>
+          </div>
+          <div style="margin-top:0.8rem;font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">Alerts, toasts, bottom sheets, skeletons</div>
+          <div style="margin-top:0.8rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
+        </div>
+      </a>
+
+      <a href="components.html#avatars" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-teal)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Avatars & Actions</div>
+          <div style="display:flex;align-items:flex-end;gap:0.8rem;margin-bottom:0.8rem;">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--nuve-teal),var(--nuve-navy));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);color:white;font-size:0.6rem;">KA</div>
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--nuve-teal),var(--nuve-navy));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);color:white;font-size:0.75rem;">KA</div>
+            <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--nuve-gold),#8A5C00);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);color:white;font-size:0.9rem;">KA</div>
+            <div style="width:36px;height:36px;border-radius:12px;background:var(--nuve-teal);display:flex;align-items:center;justify-content:center;font-size:1rem;color:white;box-shadow:0 4px 12px rgba(46,196,182,0.3);"><i class="ph-light ph-plus"></i></div>
+            <div style="width:36px;height:36px;border-radius:12px;background:var(--nuve-gold);display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:white;box-shadow:0 4px 12px rgba(212,168,67,0.3);"><i class="ph-light ph-star"></i></div>
+          </div>
+          <div style="font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">Avatar system, FABs, icon buttons, tags</div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
+        </div>
+      </a>
+
+      <a href="icons.html" style="text-decoration:none;">
+        <div class="ui-card" style="cursor:pointer; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--nuve-gold)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+          <div class="ui-card-title">Icon Library</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.8rem;">
+            <div style="width:30px;height:30px;border-radius:8px;background:rgba(46,196,182,0.1);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--nuve-teal);"><i class="ph-light ph-chart-bar"></i></div>
+            <div style="width:30px;height:30px;border-radius:8px;background:rgba(212,168,67,0.1);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--nuve-gold);"><i class="ph-light ph-bank"></i></div>
+            <div style="width:30px;height:30px;border-radius:8px;background:rgba(46,196,182,0.1);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--nuve-teal);"><i class="ph-light ph-bell"></i></div>
+            <div style="width:30px;height:30px;border-radius:8px;background:rgba(212,168,67,0.1);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--nuve-gold);"><i class="ph-light ph-shield-check"></i></div>
+            <div style="width:30px;height:30px;border-radius:8px;background:rgba(46,196,182,0.1);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--nuve-teal);"><i class="ph-light ph-trend-up"></i></div>
+            <div style="width:30px;height:30px;border-radius:8px;background:rgba(212,168,67,0.1);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--nuve-gold);"><i class="ph-light ph-coins"></i></div>
+          </div>
+          <div style="font-size:0.72rem;color:var(--nuve-gray);line-height:1.6;">119 icons · searchable · click to copy</div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--nuve-teal);letter-spacing:0.15em;">VIEW →</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="text-align:center;margin-top:1rem;">
+      <a href="components.html" style="display:inline-block;background:var(--nuve-midnight);color:var(--nuve-white);font-family:var(--font-body);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;padding:1rem 2.5rem;border-radius:10px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">View Full Components Library →</a>
     </div>
   </div>
 </section>
